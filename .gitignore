@@ -4,16 +4,20 @@ target/
 dist/
 build/
 
-# Environment
+# Environment files (MAY CONTAIN SECRETS)
 .env
 .env.local
 .env.*.local
+.env.*.dev
+.env.production
+*.env
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
 # OS
 .DS_Store
@@ -33,12 +37,40 @@ coverage/
 *.so
 *.dll
 *.dylib
+*.o
+*.a
 
 # Anchor
 .anchor/
+target/deploy/*.json
+target/idl/*.json
+target/types/*.ts
 
-# Wallet keys (NEVER commit these!)
-*.json
+# ⚠️  WALLET & KEY FILES (CRITICAL - NEVER COMMIT) ⚠️
+# These files contain private keys and should NEVER be committed
+*.key
+*.keypair
+*.keypair.json
+*-wallet.json
+wallet.json
+id.json
+*.pem
+*.p12
+*.pfx
+private_key*
+secret*
+credential*
+*.secret
+*.credentials
+
+# API Keys & Tokens (if accidentally created)
+*api*key*
+*access*token*
+*refresh*token*
+
+# Allow specific JSON files
 !package.json
+!package-lock.json
 !tsconfig.json
 !tsconfig.node.json
+!tsconfig.*.json
